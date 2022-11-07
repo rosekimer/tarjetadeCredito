@@ -1,0 +1,50 @@
+<div class="card">
+  <div class="car-body">
+    <h5 class="titulo mb-3">CREAR TARJETA</h5>
+    <form (ngSubmit)="guardarTarjeta()"  [formGroup]="forma">
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><span class="material-symbols-outlined" [class.green-icon]="titular" [class.red-icon]="titularNoValido">
+            person
+            </span></div>
+        </div>
+        <input type="text" formControlName="titular" class="form-control"  placeholder="Titular">
+      </div>
+
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><span class="material-symbols-outlined" [class.green-icon]="numtarjeta" [class.red-icon]="numtarjetaNoValido">
+            credit_card
+            </span></div>
+        </div>
+        <input type="text" formControlName="numtarjeta" maxlength="16" class="form-control"  placeholder="No. Tarjeta">
+      </div>
+
+      <div class="row">
+        <div class="col-lg-7">
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><span class="material-symbols-outlined" [class.green-icon]="fechaexp" [class.red-icon]="fechaexpNoValido">
+                calendar_month
+                </span></div>
+            </div>
+            <input type="text" formControlName="fechaexp" maxlength="5" class="form-control"  placeholder="MM/AA">
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><span class="material-symbols-outlined" [class.green-icon]="cvv" [class.red-icon]="cvvNoValido">
+                vpn_key
+                </span></div>
+            </div>
+            <input type="password" formControlName="cvv" maxlength="3" class="form-control"  placeholder="CVV">
+          </div>
+        </div>
+      </div>
+      <button type="submit" [disabled]="this.forma.invalid" class="btn btn-success btn-block mt-3"><span class="material-symbols-outlined">
+        database
+        </span>Guardar</button>
+    </form>
+  </div>
+</div>
